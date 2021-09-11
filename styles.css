@@ -46,12 +46,12 @@ body {
   word-break: break-all;
 }
 
-.screen .previous-op {
+.screen .prev-op {
   color: rgba(255,255,255, .75);
   font-size: 1.25rem;
 }
 
-.screen .current-op {
+.screen .curr-op {
   color: rgba(255,255,255, .9);
   font-size: 1.75rem;
 }
