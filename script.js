@@ -17,14 +17,17 @@ class Calculator {
 
   appendNum(number) {
     // console.log('2:',number);
+    if (number==='.' && this.txtCurr.includes('.')) return
     this.txtCurr = this.txtCurr.toString() + number.toString()
     // console.log('3:',number);
     // console.log('4:',this.txtCurr);
 
   }
 
-  chooseOperation(){
-
+  chooseOperation(operation){
+    this.operation = operation
+    this.txtPrev = this.txtCurr
+    this.txtCurr = ''
   }
 
   compute(){
@@ -34,6 +37,7 @@ class Calculator {
   updateScreen(){
     // console.log('6:',this.txtCurr);
     txtCurr.innerText = this.txtCurr
+    txtPrev.innerText = this.txtPrev
   }
 }
 
@@ -51,6 +55,15 @@ btnNums.forEach(btn => {
   btn.addEventListener('click', () => {
     // console.log('1:',btn.innerText);
     calc.appendNum(btn.innerText)
+    // console.log('5:',btn.innerText);
+    calc.updateScreen()
+  })
+})
+
+btnOps.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // console.log('1:',btn.innerText);
+    calc.chooseOperation(btn.innerText)
     // console.log('5:',btn.innerText);
     calc.updateScreen()
   })
