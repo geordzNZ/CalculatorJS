@@ -6,24 +6,34 @@ class Calculator {
   }
 
   clear() {
-    this.txtPrev = ""
-    this.txtCurr = ""
+    this.txtPrev = ''
+    this.txtCurr = ''
     this.operation = undefined
   }
+
   delete() {
 
   }
-  appendNum() {
-    this,txtCurr = number
+
+  appendNum(number) {
+    // console.log('2:',number);
+    this.txtCurr = this.txtCurr.toString() + number.toString()
+    // console.log('3:',number);
+    // console.log('4:',this.txtCurr);
+
   }
+
   chooseOperation(){
 
   }
+
   compute(){
 
   }
+
   updateScreen(){
-    this.txtCurr.innerText = this.txtCurr
+    // console.log('6:',this.txtCurr);
+    txtCurr.innerText = this.txtCurr
   }
 }
 
@@ -37,9 +47,11 @@ const txtCurr = document.querySelector('[data-curr]')
 
 const calc = new Calculator(txtPrev,txtCurr)
 
-btnNums.forEach(btn =>{
+btnNums.forEach(btn => {
   btn.addEventListener('click', () => {
+    // console.log('1:',btn.innerText);
     calc.appendNum(btn.innerText)
+    // console.log('5:',btn.innerText);
     calc.updateScreen()
   })
 })
